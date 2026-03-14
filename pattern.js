@@ -1,20 +1,20 @@
 let n = 5;
 
-for (let i = n; i >= 1; i--) {
+for (let i = n - 1; i >= 0; i--) {
 
     let num = 1;
-    let line = "";
+    let row = "";
 
-    // leading spaces
-    for (let s = 0; s < n - i; s++) {
-        line += " ";
+    // spaces for center alignment
+    for (let s = 0; s < n - i - 1; s++) {
+        row += " ";
     }
 
-    // Pascal numbers
-    for (let j = 0; j < i; j++) {
-        line += num + " ";
-        num = num * (i - j - 1) / (j + 1);
+    // print Pascal values
+    for (let j = 0; j <= i; j++) {
+        row += num + " ";
+        num = num * (i - j) / (j + 1);
     }
 
-    console.log(line);
+    console.log(row.trim());
 }
