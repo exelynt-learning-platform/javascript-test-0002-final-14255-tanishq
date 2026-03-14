@@ -1,19 +1,27 @@
 let n = 5;
 
-for (let i = n; i >= 1; i--) {
+function combination(n, r) {
+    let res = 1;
 
-    let num = 1;
+    for (let i = 0; i < r; i++) {
+        res = res * (n - i) / (i + 1);
+    }
+
+    return res;
+}
+
+for (let i = n - 1; i >= 0; i--) {
+
     let line = "";
 
-    // leading spaces
-    for (let s = 0; s < n - i; s++) {
+    // spaces for alignment
+    for (let s = 0; s < (n - 1 - i); s++) {
         line += " ";
     }
 
-    // Pascal numbers
-    for (let j = 0; j < i; j++) {
-        line += num + " ";
-        num = num * (i - j - 1) / (j + 1);
+    // Pascal values
+    for (let j = 0; j <= i; j++) {
+        line += combination(i, j) + " ";
     }
 
     console.log(line);
